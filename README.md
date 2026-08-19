@@ -258,9 +258,1953 @@ flowchart LR
     UC16 --> Notification
 ```
 # 8.Đặc tả usecase
+## UC1 - Đăng ký / Đăng nhập
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Đăng ký / Đăng nhập</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Cho phép khách hàng và tài xế đăng ký tài khoản hoặc đăng nhập vào hệ thống để sử dụng các chức năng yêu cầu tài khoản.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Khách hàng / Tài xế</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Không có</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện (Pre-condition):</b></td>
+<td>Người dùng chưa đăng nhập hoặc chưa có tài khoản.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện (Post-condition):</b></td>
+<td>Tài khoản được tạo thành công hoặc người dùng đăng nhập thành công vào hệ thống.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+</tr>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td>1. Chọn chức năng đăng ký hoặc đăng nhập.</td>
+<td>2. Hiển thị form đăng ký / đăng nhập.</td>
+</tr>
+<tr>
+<td>3. Nhập thông tin tài khoản.</td>
+<td>4. Kiểm tra thông tin tài khoản.</td>
+</tr>
+<tr>
+<td></td>
+<td>5. Tạo tài khoản hoặc xác thực thông tin đăng nhập.</td>
+</tr>
+<tr>
+<td></td>
+<td>6. Thông báo kết quả và cho phép truy cập hệ thống.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế (alternate flow):</b></td>
+</tr>
+<tr>
+<td>3a. Người dùng đã có tài khoản và chọn đăng nhập.</td>
+<td>Hệ thống chuyển sang bước xác thực thông tin đăng nhập.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ (exception flow):</b></td>
+</tr>
+<tr>
+<td>3b. Thông tin đăng nhập không chính xác.</td>
+<td>Hệ thống thông báo thông tin không hợp lệ và yêu cầu nhập lại.</td>
+</tr>
+</table>
+
+---
+
+## UC2 - Cập nhật thông tin
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Cập nhật thông tin</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Cho phép khách hàng và tài xế xem và cập nhật thông tin cá nhân.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Khách hàng / Tài xế</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Không có</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Người dùng đã đăng nhập vào hệ thống.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Thông tin cá nhân được cập nhật thành công.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+</tr>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td>1. Chọn chức năng cập nhật thông tin.</td>
+<td>2. Hiển thị thông tin hiện tại.</td>
+</tr>
+<tr>
+<td>3. Chỉnh sửa thông tin cá nhân.</td>
+<td>4. Kiểm tra thông tin.</td>
+</tr>
+<tr>
+<td></td>
+<td>5. Lưu thông tin mới.</td>
+</tr>
+<tr>
+<td></td>
+<td>6. Thông báo cập nhật thành công.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế (alternate flow):</b></td>
+</tr>
+<tr>
+<td>3a. Người dùng không thay đổi thông tin.</td>
+<td>Hệ thống giữ nguyên thông tin hiện tại.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ (exception flow):</b></td>
+</tr>
+<tr>
+<td>3b. Thông tin nhập không hợp lệ.</td>
+<td>Hệ thống thông báo lỗi và yêu cầu người dùng nhập lại.</td>
+</tr>
+</table>
+
+---
+
+## UC3 - Đặt xe
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Đặt xe</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Cho phép khách hàng nhập điểm đón, điểm đến, chọn loại xe và gửi yêu cầu đặt xe.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Khách hàng</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Hệ thống tìm và phân công tài xế</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Khách hàng đã đăng nhập vào hệ thống.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Yêu cầu đặt xe được tạo và hệ thống bắt đầu tìm tài xế.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+</tr>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td>1. Chọn chức năng đặt xe.</td>
+<td>2. Hiển thị form đặt xe.</td>
+</tr>
+<tr>
+<td>3. Nhập điểm đón và điểm đến.</td>
+<td>4. Kiểm tra thông tin chuyến đi.</td>
+</tr>
+<tr>
+<td>5. Chọn loại xe.</td>
+<td>6. Ghi nhận yêu cầu đặt xe.</td>
+</tr>
+<tr>
+<td></td>
+<td>7. Thông báo yêu cầu đã được tiếp nhận.</td>
+</tr>
+<tr>
+<td></td>
+<td>8. Chuyển yêu cầu sang chức năng tìm và phân công tài xế.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế (alternate flow):</b></td>
+</tr>
+<tr>
+<td>5a. Khách hàng thay đổi loại xe.</td>
+<td>Hệ thống cập nhật lại thông tin yêu cầu.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ (exception flow):</b></td>
+</tr>
+<tr>
+<td>3a. Thiếu điểm đón hoặc điểm đến.</td>
+<td>Hệ thống thông báo thông tin chưa đầy đủ và yêu cầu nhập lại.</td>
+</tr>
+</table>
+
+---
+
+## UC4 - Theo dõi chuyến đi
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Theo dõi chuyến đi</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Cho phép khách hàng theo dõi trạng thái hiện tại của chuyến đi và thông tin tài xế.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Khách hàng</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Hệ thống</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Khách hàng đã có chuyến đi đang được xử lý hoặc đang thực hiện.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Khách hàng xem được trạng thái mới nhất của chuyến đi.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+</tr>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td>1. Chọn chuyến đi cần theo dõi.</td>
+<td>2. Hiển thị thông tin chuyến đi.</td>
+</tr>
+<tr>
+<td></td>
+<td>3. Hiển thị trạng thái chuyến và thông tin tài xế.</td>
+</tr>
+<tr>
+<td></td>
+<td>4. Cập nhật trạng thái khi có thay đổi.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế:</b></td>
+</tr>
+<tr>
+<td>1a. Khách hàng chưa có chuyến đang thực hiện.</td>
+<td>Hệ thống thông báo không có chuyến đang hoạt động.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ:</b></td>
+</tr>
+<tr>
+<td>3a. Không lấy được trạng thái mới.</td>
+<td>Hệ thống thông báo không thể cập nhật trạng thái và yêu cầu thử lại.</td>
+</tr>
+</table>
+
+---
+
+## UC5 - Xem lịch sử chuyến
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Xem lịch sử chuyến</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Cho phép khách hàng xem các chuyến đã thực hiện và thông tin chi tiết của từng chuyến.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Khách hàng</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Không có</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Khách hàng đã đăng nhập.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Lịch sử chuyến được hiển thị.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+</tr>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td>1. Chọn chức năng lịch sử chuyến.</td>
+<td>2. Truy xuất lịch sử chuyến của khách hàng.</td>
+</tr>
+<tr>
+<td></td>
+<td>3. Hiển thị danh sách các chuyến.</td>
+</tr>
+<tr>
+<td>4. Chọn một chuyến cần xem.</td>
+<td>5. Hiển thị thông tin chi tiết và số tiền phải trả.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế:</b></td>
+</tr>
+<tr>
+<td>1a. Không có lịch sử chuyến.</td>
+<td>Hệ thống hiển thị thông báo chưa có chuyến đi.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ:</b></td>
+</tr>
+<tr>
+<td>2a. Không truy xuất được dữ liệu.</td>
+<td>Hệ thống thông báo lỗi và yêu cầu thử lại.</td>
+</tr>
+</table>
+
+---
+
+## UC6 - Thanh toán
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Thanh toán</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Cho phép khách hàng thanh toán tiền mặt hoặc thanh toán điện tử sau khi chuyến đi hoàn thành.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Khách hàng</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Nhà cung cấp thanh toán</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Chuyến đi đã hoàn thành và hệ thống đã xác định số tiền phải thanh toán.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Giao dịch được ghi nhận với trạng thái thành công hoặc thất bại.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+</tr>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td>1. Chọn phương thức thanh toán.</td>
+<td>2. Hiển thị số tiền cần thanh toán.</td>
+</tr>
+<tr>
+<td>3. Xác nhận thanh toán.</td>
+<td>4. Xử lý thanh toán theo phương thức đã chọn.</td>
+</tr>
+<tr>
+<td></td>
+<td>5. Ghi nhận kết quả giao dịch.</td>
+</tr>
+<tr>
+<td></td>
+<td>6. Thông báo kết quả thanh toán.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế:</b></td>
+</tr>
+<tr>
+<td>1a. Chọn thanh toán tiền mặt.</td>
+<td>Hệ thống ghi nhận phương thức thanh toán tiền mặt.</td>
+</tr>
+<tr>
+<td>1b. Chọn thanh toán điện tử.</td>
+<td>Hệ thống chuyển yêu cầu đến nhà cung cấp thanh toán.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ:</b></td>
+</tr>
+<tr>
+<td>3a. Thanh toán điện tử thất bại.</td>
+<td>Hệ thống thông báo thanh toán thất bại và cho phép xử lý lại theo chính sách.</td>
+</tr>
+</table>
+
+---
+
+## UC7 - Đánh giá tài xế
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Đánh giá tài xế</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Cho phép khách hàng đánh giá tài xế sau khi chuyến đi hoàn thành.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Khách hàng</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Tài xế</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Chuyến đi đã hoàn thành.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Đánh giá của khách hàng được lưu vào hệ thống.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+</tr>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td>1. Chọn chức năng đánh giá.</td>
+<td>2. Hiển thị form đánh giá tài xế.</td>
+</tr>
+<tr>
+<td>3. Nhập mức đánh giá và nhận xét.</td>
+<td>4. Kiểm tra thông tin đánh giá.</td>
+</tr>
+<tr>
+<td>5. Gửi đánh giá.</td>
+<td>6. Lưu đánh giá.</td>
+</tr>
+<tr>
+<td></td>
+<td>7. Thông báo đánh giá thành công.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế:</b></td>
+<td></td>
+</tr>
+<tr>
+<td>3a. Khách hàng chỉ nhập mức đánh giá.</td>
+<td>Hệ thống vẫn cho phép gửi đánh giá.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ:</b></td>
+<tr>
+<td>3b. Mức đánh giá không hợp lệ.</td>
+<td>Hệ thống thông báo lỗi và yêu cầu nhập lại.</td>
+</tr>
+</table>
+
+---
+
+## UC8 - Quản lý hồ sơ tài xế
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Quản lý hồ sơ tài xế</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Cho phép tài xế xem và cập nhật thông tin hồ sơ cá nhân.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Tài xế</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Nhân viên vận hành</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Tài xế đã đăng nhập.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Thông tin hồ sơ tài xế được cập nhật.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+</tr>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td>1. Chọn quản lý hồ sơ.</td>
+<td>2. Hiển thị thông tin hồ sơ hiện tại.</td>
+</tr>
+<tr>
+<td>3. Cập nhật thông tin.</td>
+<td>4. Kiểm tra thông tin.</td>
+</tr>
+<tr>
+<td></td>
+<td>5. Lưu thông tin.</td>
+</tr>
+<tr>
+<td></td>
+<td>6. Thông báo cập nhật thành công.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế:</b></td>
+<tr>
+<td>3a. Không thay đổi thông tin.</td>
+<td>Hệ thống giữ nguyên thông tin hiện tại.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ:</b></td>
+<tr>
+<td>3b. Thông tin không hợp lệ.</td>
+<td>Hệ thống thông báo lỗi và yêu cầu nhập lại.</td>
+</tr>
+</table>
+
+---
+
+## UC9 - Quản lý phương tiện
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Quản lý phương tiện</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Cho phép tài xế cập nhật thông tin phương tiện được sử dụng để thực hiện chuyến đi.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Tài xế</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Nhân viên vận hành</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Tài xế đã đăng nhập.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Thông tin phương tiện được lưu hoặc cập nhật.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+</tr>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td>1. Chọn quản lý phương tiện.</td>
+<td>2. Hiển thị thông tin phương tiện.</td>
+</tr>
+<tr>
+<td>3. Nhập hoặc cập nhật thông tin.</td>
+<td>4. Kiểm tra thông tin phương tiện.</td>
+</tr>
+<tr>
+<td></td>
+<td>5. Lưu thông tin.</td>
+</tr>
+<tr>
+<td></td>
+<td>6. Thông báo kết quả.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế:</b></td>
+<tr>
+<td>3a. Tài xế chưa có thông tin phương tiện.</td>
+<td>Hệ thống cho phép nhập mới thông tin phương tiện.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ:</b></td>
+<tr>
+<td>3b. Thông tin phương tiện không hợp lệ.</td>
+<td>Hệ thống thông báo lỗi và yêu cầu nhập lại.</td>
+</tr>
+</table>
+
+---
+
+## UC10 - Cập nhật trạng thái hoạt động
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Cập nhật trạng thái hoạt động</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Cho phép tài xế chuyển trạng thái sẵn sàng hoặc không sẵn sàng nhận chuyến.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Tài xế</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Không có</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Tài xế đã đăng nhập.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Trạng thái hoạt động mới được cập nhật.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+</tr>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td>1. Chọn trạng thái hoạt động.</td>
+<td>2. Hiển thị các trạng thái có thể chọn.</td>
+</tr>
+<tr>
+<td>3. Chọn sẵn sàng hoặc không sẵn sàng.</td>
+<td>4. Cập nhật trạng thái tài xế.</td>
+</tr>
+<tr>
+<td></td>
+<td>5. Thông báo cập nhật thành công.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế:</b></td>
+<tr>
+<td>3a. Tài xế đang thực hiện chuyến.</td>
+<td>Hệ thống giữ trạng thái phù hợp với chuyến đang thực hiện.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ:</b></td>
+<tr>
+<td>3b. Không thể cập nhật trạng thái.</td>
+<td>Hệ thống thông báo lỗi và yêu cầu thử lại.</td>
+</tr>
+</table>
+
+---
+
+## UC11 - Nhận / Từ chối chuyến
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Nhận / Từ chối chuyến</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Cho phép tài xế nhận hoặc từ chối yêu cầu chuyến được hệ thống gửi đến.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Tài xế</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Hệ thống tìm và phân công tài xế</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Tài xế đang ở trạng thái sẵn sàng và nhận được yêu cầu chuyến.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Chuyến được tài xế nhận hoặc hệ thống tiếp tục tìm tài xế khác.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+</tr>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td>1. Nhận thông báo yêu cầu chuyến.</td>
+<td>2. Hiển thị thông tin chuyến.</td>
+</tr>
+<tr>
+<td>3. Chọn nhận chuyến.</td>
+<td>4. Ghi nhận tài xế nhận chuyến.</td>
+</tr>
+<tr>
+<td></td>
+<td>5. Xác nhận chuyến và thông báo cho khách hàng.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế:</b></td>
+<tr>
+<td>3a. Tài xế chọn từ chối chuyến.</td>
+<td>Hệ thống ghi nhận từ chối và tiếp tục tìm tài xế khác.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ:</b></td>
+<tr>
+<td>3b. Tài xế không phản hồi trong thời gian quy định.</td>
+<td>Hệ thống xem như yêu cầu không được nhận và tìm tài xế khác.</td>
+</tr>
+</table>
+
+---
+
+## UC12 - Cập nhật trạng thái chuyến
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Cập nhật trạng thái chuyến</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Cho phép tài xế cập nhật trạng thái chuyến đi trong quá trình thực hiện.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Tài xế</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Khách hàng</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Tài xế đã nhận chuyến.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Trạng thái chuyến được cập nhật và khách hàng nhận được thông tin mới.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+</tr>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td>1. Chọn trạng thái chuyến.</td>
+<td>2. Hiển thị các trạng thái phù hợp.</td>
+</tr>
+<tr>
+<td>3. Chọn trạng thái mới.</td>
+<td>4. Kiểm tra trạng thái hợp lệ.</td>
+</tr>
+<tr>
+<td></td>
+<td>5. Cập nhật trạng thái chuyến.</td>
+</tr>
+<tr>
+<td></td>
+<td>6. Gửi thông báo cho khách hàng.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế:</b></td>
+<tr>
+<td>3a. Chọn "Đã đến điểm đón".</td>
+<td>Hệ thống cập nhật trạng thái và thông báo cho khách hàng.</td>
+</tr>
+<tr>
+<td>3b. Chọn "Đã đón khách".</td>
+<td>Hệ thống cập nhật trạng thái và thông báo cho khách hàng.</td>
+</tr>
+<tr>
+<td>3c. Chọn "Đang di chuyển".</td>
+<td>Hệ thống cập nhật trạng thái chuyến.</td>
+</tr>
+<tr>
+<td>3d. Chọn "Hoàn thành".</td>
+<td>Hệ thống kết thúc chuyến và chuyển sang tính cước.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ:</b></td>
+<tr>
+<td>3e. Trạng thái không hợp lệ.</td>
+<td>Hệ thống không cho phép cập nhật và thông báo lỗi.</td>
+</tr>
+</table>
+
+---
+
+## UC13 - Cập nhật vị trí
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Cập nhật vị trí</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Hệ thống ghi nhận vị trí hiện tại của tài xế để hỗ trợ tìm tài xế và dự kiến thời gian đến.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Tài xế</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Hệ thống</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Tài xế đã đăng nhập và cho phép hệ thống sử dụng vị trí.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Vị trí mới nhất của tài xế được ghi nhận.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+</tr>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td>1. Cho phép hệ thống truy cập vị trí.</td>
+<td>2. Nhận dữ liệu vị trí.</td>
+</tr>
+<tr>
+<td></td>
+<td>3. Lưu vị trí hiện tại của tài xế.</td>
+</tr>
+<tr>
+<td></td>
+<td>4. Sử dụng vị trí để hỗ trợ tìm tài xế và dự kiến thời gian đến.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế:</b></td>
+<tr>
+<td>1a. Tài xế thay đổi vị trí.</td>
+<td>Hệ thống tiếp tục cập nhật vị trí mới.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ:</b></td>
+<tr>
+<td>1b. Không lấy được vị trí.</td>
+<td>Hệ thống thông báo không thể cập nhật vị trí.</td>
+</tr>
+</table>
+
+---
+
+## UC14 - Tìm và phân công tài xế
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Tìm và phân công tài xế</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Hệ thống tìm kiếm và đề xuất tài xế phù hợp dựa trên vị trí, trạng thái sẵn sàng và tiêu chí vận hành.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Hệ thống</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Tài xế / Khách hàng</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Khách hàng đã tạo yêu cầu đặt xe.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Tài xế phù hợp được phân công hoặc khách hàng được thông báo không tìm được tài xế.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+</tr>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td></td>
+<td>1. Nhận yêu cầu đặt xe.</td>
+</tr>
+<tr>
+<td></td>
+<td>2. Xác định các tài xế đang sẵn sàng.</td>
+</tr>
+<tr>
+<td></td>
+<td>3. Kiểm tra vị trí và tiêu chí phù hợp.</td>
+</tr>
+<tr>
+<td></td>
+<td>4. Ưu tiên tài xế phù hợp và gần khách hàng.</td>
+</tr>
+<tr>
+<td></td>
+<td>5. Gửi yêu cầu chuyến đến tài xế được chọn.</td>
+</tr>
+<tr>
+<td>6. Chấp nhận chuyến.</td>
+<td>7. Xác nhận phân công tài xế.</td>
+</tr>
+<tr>
+<td></td>
+<td>8. Thông báo thông tin tài xế cho khách hàng.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế:</b></td>
+<tr>
+<td>6a. Tài xế từ chối chuyến.</td>
+<td>Hệ thống chọn tài xế phù hợp tiếp theo.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ:</b></td>
+<tr>
+<td>6b. Không có tài xế phù hợp.</td>
+<td>Hệ thống thông báo cho khách hàng không tìm được tài xế.</td>
+</tr>
+</table>
+
+---
+
+## UC15 - Tính cước
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Tính cước</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Hệ thống xác định số tiền khách hàng phải trả dựa trên loại dịch vụ và thông tin chuyến đi.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Hệ thống</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Khách hàng</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Chuyến đi đã hoàn thành và có đầy đủ thông tin cần thiết để tính cước.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Số tiền phải trả được xác định và lưu vào thông tin chuyến đi.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+</tr>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td></td>
+<td>1. Nhận thông tin chuyến đi.</td>
+</tr>
+<tr>
+<td></td>
+<td>2. Xác định loại dịch vụ và thông tin chuyến.</td>
+</tr>
+<tr>
+<td></td>
+<td>3. Áp dụng quy tắc tính cước.</td>
+</tr>
+<tr>
+<td></td>
+<td>4. Xác định số tiền khách hàng phải trả.</td>
+</tr>
+<tr>
+<td></td>
+<td>5. Lưu thông tin cước.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế:</b></td>
+<tr>
+<td></td>
+<td>3a. Áp dụng loại dịch vụ khác nhau.</td>
+</tr>
+<tr>
+<td></td>
+<td>Hệ thống tính cước theo loại dịch vụ tương ứng.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ:</b></td>
+<tr>
+<td></td>
+<td>3b. Thiếu thông tin chuyến đi để tính cước.</td>
+</tr>
+<tr>
+<td></td>
+<td>Hệ thống thông báo không thể tính cước.</td>
+</tr>
+</table>
+
+---
+
+## UC16 - Gửi thông báo
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Gửi thông báo</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Hệ thống gửi thông báo đến khách hàng và tài xế khi xảy ra các sự kiện quan trọng.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Hệ thống</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Nhà cung cấp thông báo</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Có sự kiện cần gửi thông báo.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Thông báo được gửi đến người nhận hoặc ghi nhận trạng thái gửi thất bại.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+</tr>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td></td>
+<td>1. Phát sinh sự kiện cần thông báo.</td>
+</tr>
+<tr>
+<td></td>
+<td>2. Xác định người nhận và nội dung thông báo.</td>
+</tr>
+<tr>
+<td></td>
+<td>3. Gửi thông báo đến nhà cung cấp.</td>
+</tr>
+<tr>
+<td></td>
+<td>4. Nhận kết quả gửi.</td>
+</tr>
+<tr>
+<td></td>
+<td>5. Ghi nhận trạng thái thông báo.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế:</b></td>
+<tr>
+<td></td>
+<td>3a. Sử dụng kênh thông báo khác.</td>
+</tr>
+<tr>
+<td></td>
+<td>Hệ thống gửi thông báo thông qua kênh được cấu hình.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ:</b></td>
+<tr>
+<td></td>
+<td>4a. Nhà cung cấp thông báo không phản hồi.</td>
+</tr>
+<tr>
+<td></td>
+<td>Hệ thống ghi nhận gửi thất bại và xử lý lại theo chính sách.</td>
+</tr>
+</table>
+
+---
+
+## UC17 - Quản lý khách hàng
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Quản lý khách hàng</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Cho phép nhân viên vận hành xem và quản lý thông tin khách hàng.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Nhân viên vận hành</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Khách hàng</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Nhân viên vận hành đã đăng nhập và có quyền quản lý khách hàng.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Thông tin khách hàng được xem hoặc cập nhật theo quyền.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td>1. Chọn quản lý khách hàng.</td>
+<td>2. Hiển thị danh sách khách hàng.</td>
+</tr>
+<tr>
+<td>3. Chọn khách hàng cần xem.</td>
+<td>4. Hiển thị thông tin khách hàng.</td>
+</tr>
+<tr>
+<td>5. Thực hiện thao tác quản lý.</td>
+<td>6. Kiểm tra quyền và lưu thay đổi.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế:</b></td>
+<tr>
+<td>5a. Chỉ xem thông tin.</td>
+<td>Hệ thống không thay đổi dữ liệu.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ:</b></td>
+<tr>
+<td>5b. Không có quyền thực hiện thao tác.</td>
+<td>Hệ thống từ chối thao tác và thông báo lỗi.</td>
+</tr>
+</table>
+
+---
+
+## UC18 - Quản lý tài xế
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Quản lý tài xế</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Cho phép nhân viên vận hành xem và quản lý thông tin tài xế.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Nhân viên vận hành</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Tài xế</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Nhân viên vận hành đã đăng nhập và có quyền quản lý tài xế.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Thông tin tài xế được xem hoặc cập nhật.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td>1. Chọn quản lý tài xế.</td>
+<td>2. Hiển thị danh sách tài xế.</td>
+</tr>
+<tr>
+<td>3. Chọn tài xế.</td>
+<td>4. Hiển thị thông tin tài xế.</td>
+</tr>
+<tr>
+<td>5. Cập nhật thông tin cần thiết.</td>
+<td>6. Kiểm tra quyền và lưu thông tin.</td>
+</tr>
+<tr>
+<td></td>
+<td>7. Ghi nhận thao tác quản lý.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế:</b></td>
+<tr>
+<td>5a. Chỉ xem thông tin.</td>
+<td>Hệ thống không thay đổi dữ liệu.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ:</b></td>
+<tr>
+<td>5b. Không có quyền cập nhật.</td>
+<td>Hệ thống từ chối thao tác.</td>
+</tr>
+</table>
+
+---
+
+## UC19 - Quản lý phương tiện
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Quản lý phương tiện</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Cho phép nhân viên vận hành quản lý thông tin phương tiện của tài xế.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Nhân viên vận hành</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Tài xế</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Nhân viên vận hành đã đăng nhập và có quyền quản lý phương tiện.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Thông tin phương tiện được cập nhật hoặc tra cứu.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td>1. Chọn quản lý phương tiện.</td>
+<td>2. Hiển thị danh sách phương tiện.</td>
+</tr>
+<tr>
+<td>3. Chọn phương tiện.</td>
+<td>4. Hiển thị thông tin phương tiện.</td>
+</tr>
+<tr>
+<td>5. Cập nhật thông tin.</td>
+<td>6. Kiểm tra và lưu thông tin.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế:</b></td>
+<tr>
+<td>5a. Chỉ xem thông tin.</td>
+<td>Hệ thống không thay đổi dữ liệu.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ:</b></td>
+<tr>
+<td>5b. Thông tin không hợp lệ.</td>
+<td>Hệ thống thông báo lỗi và yêu cầu nhập lại.</td>
+</tr>
+</table>
+
+---
+
+## UC20 - Theo dõi chuyến đang diễn ra
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Theo dõi chuyến đang diễn ra</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Cho phép nhân viên vận hành theo dõi các chuyến đang thực hiện và trạng thái của tài xế.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Nhân viên vận hành</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Tài xế</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Nhân viên vận hành đã đăng nhập và có quyền theo dõi chuyến.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Nhân viên vận hành xem được trạng thái chuyến và tài xế.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td>1. Chọn chức năng theo dõi chuyến.</td>
+<td>2. Hiển thị danh sách các chuyến đang diễn ra.</td>
+</tr>
+<tr>
+<td>3. Chọn chuyến cần theo dõi.</td>
+<td>4. Hiển thị trạng thái chuyến và tài xế.</td>
+</tr>
+<tr>
+<td></td>
+<td>5. Cập nhật thông tin khi trạng thái thay đổi.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế:</b></td>
+<tr>
+<td>3a. Không có chuyến đang diễn ra.</td>
+<td>Hệ thống thông báo không có dữ liệu.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ:</b></td>
+<tr>
+<td>4a. Không lấy được dữ liệu chuyến.</td>
+<td>Hệ thống thông báo lỗi và yêu cầu thử lại.</td>
+</tr>
+</table>
+
+---
+
+## UC21 - Xử lý chuyến lỗi
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Xử lý chuyến lỗi</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Cho phép nhân viên vận hành hỗ trợ xử lý các trường hợp chuyến đi gặp sự cố.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Nhân viên vận hành</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Khách hàng / Tài xế</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Chuyến đi phát sinh lỗi hoặc cần nhân viên vận hành hỗ trợ.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Sự cố được ghi nhận và xử lý theo chính sách của doanh nghiệp.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td>1. Chọn chuyến gặp sự cố.</td>
+<td>2. Hiển thị thông tin chuyến.</td>
+</tr>
+<tr>
+<td>3. Kiểm tra nguyên nhân sự cố.</td>
+<td>4. Ghi nhận thông tin xử lý.</td>
+</tr>
+<tr>
+<td>5. Thực hiện thao tác hỗ trợ.</td>
+<td>6. Cập nhật trạng thái chuyến.</td>
+</tr>
+<tr>
+<td></td>
+<td>7. Ghi nhận lịch sử xử lý.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế:</b></td>
+<tr>
+<td>5a. Không thể xử lý ngay.</td>
+<td>Hệ thống ghi nhận sự cố để tiếp tục xử lý.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ:</b></td>
+<tr>
+<td>3a. Không xác định được nguyên nhân.</td>
+<td>Hệ thống ghi nhận lỗi và yêu cầu nhân viên kiểm tra thêm.</td>
+</tr>
+</table>
+
+---
+
+## UC22 - Tra cứu giao dịch
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Tra cứu giao dịch</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Cho phép nhân viên vận hành tra cứu lịch sử và trạng thái các giao dịch thanh toán.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Nhân viên vận hành</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Nhà cung cấp thanh toán</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Nhân viên vận hành đã đăng nhập và có quyền tra cứu giao dịch.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Thông tin giao dịch được hiển thị.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td>1. Chọn chức năng tra cứu giao dịch.</td>
+<td>2. Hiển thị giao diện tra cứu.</td>
+</tr>
+<tr>
+<td>3. Nhập điều kiện tìm kiếm.</td>
+<td>4. Tìm kiếm giao dịch phù hợp.</td>
+</tr>
+<tr>
+<td></td>
+<td>5. Hiển thị thông tin và trạng thái giao dịch.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế:</b></td>
+<tr>
+<td>3a. Không nhập điều kiện tìm kiếm.</td>
+<td>Hệ thống hiển thị danh sách giao dịch theo phạm vi được phép.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ:</b></td>
+<tr>
+<td>3b. Không tìm thấy giao dịch.</td>
+<td>Hệ thống thông báo không tìm thấy dữ liệu phù hợp.</td>
+</tr>
+</table>
+
+---
+
+## UC23 - Quản lý tài khoản / Phân quyền
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Quản lý tài khoản / Phân quyền</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Cho phép nhân viên vận hành có quyền quản trị quản lý tài khoản và phân quyền người dùng.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Nhân viên vận hành có quyền quản trị</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Người dùng hệ thống</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Nhân viên đã đăng nhập và có quyền quản trị.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Tài khoản hoặc quyền của người dùng được cập nhật theo đúng phân quyền.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td>1. Chọn quản lý tài khoản / phân quyền.</td>
+<td>2. Hiển thị danh sách tài khoản.</td>
+</tr>
+<tr>
+<td>3. Chọn tài khoản cần quản lý.</td>
+<td>4. Hiển thị thông tin và quyền hiện tại.</td>
+</tr>
+<tr>
+<td>5. Thay đổi vai trò hoặc quyền.</td>
+<td>6. Kiểm tra quyền của người thực hiện.</td>
+</tr>
+<tr>
+<td></td>
+<td>7. Lưu thông tin phân quyền.</td>
+</tr>
+<tr>
+<td></td>
+<td>8. Ghi nhận thao tác vào audit log.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế:</b></td>
+<tr>
+<td>5a. Chỉ xem thông tin tài khoản.</td>
+<td>Hệ thống không thay đổi dữ liệu.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ:</b></td>
+<tr>
+<td>5b. Người thực hiện không có quyền.</td>
+<td>Hệ thống từ chối thao tác và ghi nhận sự kiện.</td>
+</tr>
+</table>
+
+---
+
+## UC24 - Xem báo cáo
+
+<table>
+<tr>
+<td>- <b>Tên use case:</b></td>
+<td>Xem báo cáo</td>
+</tr>
+<tr>
+<td>- <b>Mô tả sơ lược:</b></td>
+<td>Cho phép ban lãnh đạo xem các báo cáo về hoạt động kinh doanh và hiệu quả vận hành của hệ thống.</td>
+</tr>
+<tr>
+<td>- <b>Actor chính:</b></td>
+<td>Ban lãnh đạo</td>
+</tr>
+<tr>
+<td>- <b>Actor phụ:</b></td>
+<td>Nhân viên vận hành</td>
+</tr>
+<tr>
+<td>- <b>Tiền điều kiện:</b></td>
+<td>Người dùng đã đăng nhập và có quyền xem báo cáo.</td>
+</tr>
+<tr>
+<td>- <b>Hậu điều kiện:</b></td>
+<td>Báo cáo được hiển thị theo phạm vi và thời gian được chọn.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện chính (main flow):</b></td>
+<tr>
+<td><b>- Actor</b></td>
+<td><b>- System</b></td>
+</tr>
+<tr>
+<td>1. Chọn chức năng báo cáo.</td>
+<td>2. Hiển thị các loại báo cáo.</td>
+</tr>
+<tr>
+<td>3. Chọn loại báo cáo và khoảng thời gian.</td>
+<td>4. Truy xuất dữ liệu.</td>
+</tr>
+<tr>
+<td></td>
+<td>5. Tính toán các chỉ số.</td>
+</tr>
+<tr>
+<td></td>
+<td>6. Hiển thị báo cáo.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện thay thế:</b></td>
+<tr>
+<td>3a. Chọn báo cáo khác.</td>
+<td>Hệ thống tạo báo cáo theo loại được chọn.</td>
+</tr>
+<tr>
+<td colspan="2"><b>- Luồng sự kiện ngoại lệ:</b></td>
+<tr>
+<td>3b. Khoảng thời gian không hợp lệ.</td>
+<td>Hệ thống thông báo lỗi và yêu cầu chọn lại.</td>
+</tr>
+</table>
 
 # 9.Phân tích quy trình nghiệp vụ
 
+## 9.1. Quy trình nghiệp vụ tổng thể
+
+```mermaid
+flowchart TD
+    A["Khách hàng đăng nhập"] --> B["Nhập điểm đón, điểm đến và chọn loại xe"]
+    B --> C["Gửi yêu cầu đặt xe"]
+    C --> D["Hệ thống tiếp nhận yêu cầu"]
+    D --> E["Tìm tài xế phù hợp"]
+
+    E --> F{"Có tài xế phù hợp?"}
+
+    F -->|Không| G["Thông báo không tìm được tài xế"]
+    G --> Z["Kết thúc yêu cầu"]
+
+    F -->|Có| H["Gửi yêu cầu chuyến đến tài xế"]
+    H --> I{"Tài xế chấp nhận?"}
+
+    I -->|Không| J["Tìm tài xế khác"]
+    J --> E
+
+    I -->|Có| K["Xác nhận tài xế cho chuyến"]
+    K --> L["Thông báo thông tin tài xế cho khách hàng"]
+
+    L --> M["Tài xế di chuyển đến điểm đón"]
+    M --> N["Tài xế cập nhật đã đến điểm đón"]
+    N --> O["Thông báo cho khách hàng"]
+
+    O --> P["Tài xế đón khách"]
+    P --> Q["Cập nhật đã đón khách"]
+    Q --> R["Cập nhật đang di chuyển"]
+    R --> S["Tài xế hoàn thành chuyến"]
+
+    S --> T["Hệ thống tính cước"]
+    T --> U{"Phương thức thanh toán?"}
+
+    U -->|Tiền mặt| V["Ghi nhận thanh toán tiền mặt"]
+    U -->|Điện tử| W["Gửi yêu cầu đến nhà cung cấp thanh toán"]
+
+    W --> X{"Thanh toán thành công?"}
+
+    X -->|Có| Y["Ghi nhận giao dịch thành công"]
+    X -->|Không| AA["Thông báo thanh toán thất bại"]
+    AA --> AB["Xử lý lại theo chính sách"]
+    AB --> W
+
+    V --> AC["Thông báo kết quả thanh toán"]
+    Y --> AC
+
+    AC --> AD["Khách hàng xem lịch sử chuyến"]
+    AD --> AE["Khách hàng đánh giá tài xế"]
+    AE --> AF["Kết thúc chuyến"]
+```
+
+## 9.2. Quy trình đặt xe
+
+```mermaid
+flowchart LR
+    subgraph Actor["Actor"]
+        A1["Khách hàng"]
+        A2["Tài xế"]
+    end
+
+    subgraph System["CAB System"]
+        S1["Xác thực tài khoản"]
+        S2["Tiếp nhận yêu cầu đặt xe"]
+        S3["Kiểm tra thông tin chuyến"]
+        S4["Tìm tài xế phù hợp"]
+        S5["Ưu tiên tài xế gần và phù hợp"]
+        S6["Gửi yêu cầu chuyến"]
+        S7{"Tài xế phản hồi?"}
+        S8["Xác nhận tài xế"]
+        S9["Tiếp tục tìm tài xế khác"]
+        S10["Thông báo không tìm được tài xế"]
+    end
+
+    A1 --> S1
+    S1 --> A1
+    A1 --> S2
+    S2 --> S3
+    S3 --> S4
+    S4 --> S5
+    S5 --> S6
+    S6 --> A2
+    A2 --> S7
+
+    S7 -->|Chấp nhận| S8
+    S7 -->|Từ chối / Không phản hồi| S9
+    S9 --> S4
+
+    S4 --> S10
+```
+
+## 9.3. Quy trình thực hiện chuyến
+
+```mermaid
+flowchart LR
+    subgraph Actor["Actor"]
+        A1["Tài xế"]
+        A2["Khách hàng"]
+    end
+
+    subgraph System["CAB System"]
+        S1["Xác nhận chuyến"]
+        S2["Thông báo tài xế cho khách hàng"]
+        S3["Ghi nhận vị trí tài xế"]
+        S4["Cập nhật trạng thái chuyến"]
+        S5["Thông báo trạng thái cho khách hàng"]
+        S6["Tính cước"]
+    end
+
+    A1 -->|Nhận chuyến| S1
+    S1 --> S2
+    S2 --> A2
+
+    A1 -->|Di chuyển| S3
+    S3 --> A1
+
+    A1 -->|Đã đến điểm đón| S4
+    S4 --> S5
+    S5 --> A2
+
+    A1 -->|Đã đón khách| S4
+    A1 -->|Đang di chuyển| S4
+    A1 -->|Hoàn thành chuyến| S4
+
+    S4 --> S6
+```
+
+## 9.4. Quy trình tính cước và thanh toán
+
+```mermaid
+flowchart TD
+    A["Chuyến đi hoàn thành"] --> B["Hệ thống tính cước"]
+    B --> C["Xác định số tiền phải trả"]
+    C --> D{"Khách hàng chọn phương thức thanh toán?"}
+
+    D -->|Tiền mặt| E["Khách hàng thanh toán tiền mặt"]
+    E --> F["Hệ thống ghi nhận thanh toán"]
+
+    D -->|Điện tử| G["Gửi yêu cầu thanh toán"]
+    G --> H["Nhà cung cấp thanh toán xử lý giao dịch"]
+    H --> I{"Giao dịch thành công?"}
+
+    I -->|Có| J["Hệ thống ghi nhận giao dịch thành công"]
+    I -->|Không| K["Thông báo thanh toán thất bại"]
+    K --> L["Xử lý lại theo chính sách doanh nghiệp"]
+    L --> G
+
+    F --> M["Thông báo kết quả thanh toán"]
+    J --> M
+    M --> N["Hoàn tất quy trình thanh toán"]
+```
+
+## 9.5. Quy trình thông báo
+
+```mermaid
+flowchart TD
+    A["Sự kiện trong hệ thống"] --> B{"Loại sự kiện"}
+
+    B -->|Yêu cầu đặt xe được tiếp nhận| C["Thông báo khách hàng"]
+    B -->|Tài xế nhận chuyến| D["Thông báo khách hàng"]
+    B -->|Tài xế đến điểm đón| E["Thông báo khách hàng"]
+    B -->|Có chuyến mới| F["Thông báo tài xế"]
+    B -->|Chuyến thay đổi trạng thái| G["Thông báo khách hàng / tài xế"]
+    B -->|Chuyến hoàn thành| H["Thông báo khách hàng"]
+    B -->|Thanh toán có kết quả| I["Thông báo khách hàng"]
+
+    C --> J["Notification Provider"]
+    D --> J
+    E --> J
+    F --> J
+    G --> J
+    H --> J
+    I --> J
+
+    J --> K["Gửi thông báo đến người dùng"]
+```
+
+## 9.6. Quy trình sau chuyến đi
+
+```mermaid
+flowchart LR
+    A["Chuyến đi hoàn thành"] --> B["Tính cước"]
+    B --> C["Thanh toán"]
+    C --> D["Lưu thông tin chuyến"]
+    D --> E["Khách hàng xem lịch sử chuyến"]
+    E --> F["Xem chi tiết chuyến"]
+    F --> G["Đánh giá tài xế"]
+    G --> H["Hoàn tất quy trình"]
+```
+
+## 9.7. Quy trình quản lý và vận hành
+
+```mermaid
+flowchart TD
+    A["Nhân viên vận hành đăng nhập"] --> B["Hệ thống xác thực và kiểm tra quyền"]
+
+    B --> C{"Chức năng quản lý"}
+
+    C -->|Quản lý khách hàng| D["Xem / quản lý khách hàng"]
+    C -->|Quản lý tài xế| E["Xem / quản lý tài xế"]
+    C -->|Quản lý phương tiện| F["Xem / quản lý phương tiện"]
+    C -->|Theo dõi chuyến| G["Xem chuyến đang diễn ra"]
+    C -->|Xử lý chuyến lỗi| H["Kiểm tra và hỗ trợ xử lý"]
+    C -->|Tra cứu giao dịch| I["Xem lịch sử và trạng thái giao dịch"]
+    C -->|Quản lý tài khoản| J["Quản lý tài khoản và phân quyền"]
+
+    D --> K["Ghi nhận thao tác"]
+    E --> K
+    F --> K
+    G --> K
+    H --> K
+    I --> K
+    J --> K
+```
+
+## 9.8. Quy trình báo cáo
+
+```mermaid
+flowchart LR
+    A["Dữ liệu hệ thống"] --> B["Dữ liệu chuyến đi"]
+    A --> C["Dữ liệu thanh toán"]
+    A --> D["Dữ liệu tài xế"]
+
+    B --> E["Báo cáo số lượng chuyến"]
+    B --> F["Báo cáo tỷ lệ hoàn thành"]
+    B --> G["Báo cáo tỷ lệ hủy"]
+
+    C --> H["Báo cáo doanh thu"]
+
+    D --> I["Báo cáo hiệu quả tài xế"]
+
+    E --> J["Ban lãnh đạo"]
+    F --> J
+    G --> J
+    H --> J
+    I --> J
+```
+
+## 9.9. Quy trình xử lý các trường hợp ngoại lệ
+
+```mermaid
+flowchart TD
+    A["Phát sinh ngoại lệ"] --> B{"Loại ngoại lệ"}
+
+    B -->|Không tìm được tài xế| C["Thông báo khách hàng"]
+    C --> D["Kết thúc yêu cầu"]
+
+    B -->|Tài xế từ chối| E["Tìm tài xế khác"]
+    E --> F["Tiếp tục quy trình tìm tài xế"]
+
+    B -->|Tài xế không phản hồi| G["Chuyển sang tài xế khác"]
+    G --> F
+
+    B -->|Thanh toán thất bại| H["Thông báo khách hàng"]
+    H --> I["Cho phép xử lý lại theo chính sách"]
+
+    B -->|Chuyến gặp sự cố| J["Nhân viên vận hành kiểm tra"]
+    J --> K["Hỗ trợ xử lý chuyến"]
+
+    B -->|Không đủ quyền quản trị| L["Từ chối thao tác"]
+    L --> M["Ghi nhận thao tác"]
+```
+
+## 9.10. Các vấn đề cần làm rõ trong quy trình nghiệp vụ
+
+```mermaid
+mindmap
+    root((CAB System))
+        Cách tính cước
+            Giá cơ bản
+            Khoảng cách
+            Thời gian
+            Phụ phí
+        Tìm tài xế
+            Khoảng cách
+            Trạng thái sẵn sàng
+            Tiêu chí ưu tiên
+        Thời gian phản hồi
+            Thời gian chấp nhận
+            Thời gian chuyển tài xế khác
+        Hủy chuyến
+            Khách hàng hủy
+            Tài xế hủy
+            Phí hủy
+        Thanh toán
+            Số lần thử lại
+            Chính sách thất bại
+        Mất kết nối
+            Khách hàng
+            Tài xế
+            Đồng bộ trạng thái
+        Lưu trữ dữ liệu
+            Chuyến đi
+            Giao dịch
+            Vị trí
+            Audit log
+        Phân quyền
+            Nhân viên vận hành
+            Quản trị viên
+        Thông báo
+            Kênh thông báo
+            Kênh dự phòng
+        Đánh giá
+            Thời gian đánh giá
+            Chỉnh sửa đánh giá
+```
+
+## 9.11. Tổng kết quy trình nghiệp vụ
+
+```mermaid
+flowchart LR
+    A["Khách hàng"] --> B["Tạo yêu cầu đặt xe"]
+    B --> C["CAB System"]
+    C --> D["Tìm và phân công tài xế"]
+    D --> E["Tài xế"]
+    E --> F["Thực hiện chuyến"]
+    F --> G["Hoàn thành chuyến"]
+    G --> H["Tính cước"]
+    H --> I["Thanh toán"]
+    I --> J["Lịch sử chuyến"]
+    J --> K["Đánh giá tài xế"]
+
+    C --> L["Thông báo"]
+    L --> A
+    L --> E
+
+    C --> M["Quản lý vận hành"]
+    M --> C
+
+    C --> N["Báo cáo"]
+    N --> O["Ban lãnh đạo"]
+```
 # 10.Phân tich quy tắc nghiệp vụ
 
 Các quy tắc nghiệp vụ của hệ thống CAB được xác định dựa trên quy trình đặt xe, tìm tài xế, thực hiện chuyến, thanh toán, quản lý vận hành và các yêu cầu bảo mật của doanh nghiệp.
@@ -478,4 +2422,114 @@ flowchart TD
     H --> P
     J --> P
     L --> P
-    ```
+```
+
+## 10.16. Tóm tắt các quy tắc nghiệp vụ
+
+```mermaid
+flowchart TD
+    A["Quản lý tài khoản"] --> B["Xác thực và phân quyền"]
+    B --> C["Đặt xe"]
+
+    C --> D["Kiểm tra thông tin đặt xe"]
+    D --> E["Tìm và phân công tài xế"]
+
+    E --> F{"Có tài xế phù hợp?"}
+    F -- "Không" --> G["Thông báo không tìm được tài xế"]
+    F -- "Có" --> H["Gửi yêu cầu cho tài xế"]
+
+    H --> I{"Tài xế nhận chuyến?"}
+    I -- "Từ chối / Không phản hồi" --> E
+    I -- "Chấp nhận" --> J["Xác nhận chuyến"]
+
+    J --> K["Theo dõi và cập nhật trạng thái chuyến"]
+    K --> L["Hoàn thành chuyến"]
+
+    L --> M["Tính cước"]
+    M --> N["Thanh toán"]
+
+    N --> O{"Kết quả thanh toán"}
+    O -- "Thành công" --> P["Ghi nhận giao dịch"]
+    O -- "Thất bại" --> Q["Thông báo và xử lý thanh toán lại"]
+
+    P --> R["Lưu lịch sử chuyến"]
+    Q --> R
+
+    R --> S["Đánh giá tài xế"]
+
+    C --> T["Gửi thông báo"]
+    J --> T
+    K --> T
+    L --> T
+    N --> T
+
+    E --> U["Ghi nhận vị trí tài xế"]
+    U --> E
+
+    V["Nhân viên vận hành"] --> W["Quản lý khách hàng, tài xế, phương tiện"]
+    V --> X["Theo dõi và xử lý chuyến lỗi"]
+    V --> Y["Tra cứu giao dịch"]
+
+    Z["Ban lãnh đạo"] --> AA["Xem báo cáo"]
+```
+
+## 10.17.Các nhóm quy tắc chính
+```mermaid
+mindmap
+  root((Quy tắc nghiệp vụ CAB System))
+    Quản lý tài khoản
+      Xác thực người dùng
+      Phân quyền
+      Bảo vệ thông tin
+    Đặt xe
+      Điểm đón
+      Điểm đến
+      Loại xe
+      Tạo yêu cầu
+    Điều phối tài xế
+      Tài xế sẵn sàng
+      Ưu tiên tài xế phù hợp
+      Ưu tiên tài xế gần
+      Từ chối hoặc không phản hồi
+      Tìm tài xế thay thế
+    Chuyến đi
+      Đã nhận chuyến
+      Đã đến điểm đón
+      Đã đón khách
+      Đang di chuyển
+      Hoàn thành
+    Thanh toán
+      Tính cước
+      Tiền mặt
+      Thanh toán điện tử
+      Thanh toán thất bại
+      Xử lý lại
+    Thông báo
+      Tiếp nhận yêu cầu
+      Tài xế nhận chuyến
+      Tài xế đến
+      Hoàn thành chuyến
+      Kết quả thanh toán
+    Lịch sử và đánh giá
+      Lưu lịch sử
+      Xem lịch sử
+      Xem số tiền
+      Đánh giá tài xế
+    Vận hành
+      Quản lý khách hàng
+      Quản lý tài xế
+      Quản lý phương tiện
+      Theo dõi chuyến
+      Xử lý chuyến lỗi
+      Tra cứu giao dịch
+    Báo cáo
+      Số lượng chuyến
+      Doanh thu
+      Tỷ lệ hoàn thành
+      Tỷ lệ hủy
+      Hiệu quả tài xế
+    Bảo mật
+      Kiểm soát truy cập
+      Bảo vệ dữ liệu
+      Audit log
+```
