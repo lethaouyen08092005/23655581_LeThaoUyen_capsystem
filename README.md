@@ -259,8 +259,223 @@ flowchart LR
 ```
 # 8.Đặc tả usecase
 
-
 # 9.Phân tích quy trình nghiệp vụ
+
 # 10.Phân tich quy tắc nghiệp vụ
 
+Các quy tắc nghiệp vụ của hệ thống CAB được xác định dựa trên quy trình đặt xe, tìm tài xế, thực hiện chuyến, thanh toán, quản lý vận hành và các yêu cầu bảo mật của doanh nghiệp.
 
+## 10.1. Quy tắc về tài khoản và phân quyền
+
+| ID | Quy tắc nghiệp vụ | Mô tả |
+| --- | --- | --- |
+| BR-01 | Xác thực người dùng | Khách hàng và tài xế phải đăng nhập và được xác thực trước khi sử dụng các chức năng yêu cầu tài khoản. |
+| BR-02 | Phân quyền theo vai trò | Người dùng chỉ được sử dụng các chức năng phù hợp với vai trò của mình. |
+| BR-03 | Quyền quản trị | Chỉ nhân viên vận hành có quyền phù hợp mới được thực hiện các thao tác quản trị và thao tác nhạy cảm. |
+| BR-04 | Quản lý tài khoản tài xế | Tài xế có thể tự đăng ký hoặc được nhân viên vận hành tạo tài khoản. |
+| BR-05 | Cập nhật thông tin | Khách hàng và tài xế được phép cập nhật thông tin cá nhân của mình theo quyền được cấp. |
+
+## 10.2. Quy tắc về đặt xe
+
+| ID | Quy tắc nghiệp vụ | Mô tả |
+| --- | --- | --- |
+| BR-06 | Thông tin đặt xe bắt buộc | Một yêu cầu đặt xe phải có điểm đón, điểm đến và loại xe được lựa chọn. |
+| BR-07 | Tạo yêu cầu đặt xe | Chỉ khách hàng đã được xác thực mới có thể tạo yêu cầu đặt xe. |
+| BR-08 | Tìm tài xế sau khi đặt xe | Sau khi yêu cầu đặt xe được tạo, hệ thống phải tự động tìm tài xế phù hợp. |
+| BR-09 | Không yêu cầu tạo lại | Khi tài xế từ chối hoặc không phản hồi, hệ thống phải tiếp tục tìm tài xế khác mà không yêu cầu khách hàng tạo lại yêu cầu. |
+| BR-10 | Không tìm được tài xế | Nếu không tìm được tài xế phù hợp, hệ thống phải thông báo rõ ràng cho khách hàng. |
+
+## 10.3. Quy tắc về tìm và phân công tài xế
+
+| ID | Quy tắc nghiệp vụ | Mô tả |
+| --- | --- | --- |
+| BR-11 | Tài xế sẵn sàng | Chỉ tài xế đang ở trạng thái sẵn sàng nhận chuyến mới được xem xét để phân công. |
+| BR-12 | Tài xế phù hợp | Hệ thống lựa chọn tài xế dựa trên vị trí, trạng thái sẵn sàng và các tiêu chí vận hành đã được doanh nghiệp xác định. |
+| BR-13 | Ưu tiên tài xế gần | Hệ thống ưu tiên các tài xế phù hợp và có vị trí gần điểm đón của khách hàng. |
+| BR-14 | Tài xế từ chối | Nếu tài xế từ chối chuyến, hệ thống phải tiếp tục tìm tài xế khác. |
+| BR-15 | Tài xế không phản hồi | Nếu tài xế không phản hồi trong khoảng thời gian được quy định, hệ thống xem yêu cầu là không được nhận và tiếp tục tìm tài xế khác. |
+| BR-16 | Một chuyến chỉ có một tài xế | Một yêu cầu đặt xe chỉ được xác nhận cho một tài xế tại một thời điểm. |
+| BR-17 | Xác nhận nhận chuyến | Chuyến đi chỉ được chuyển sang trạng thái đã có tài xế khi tài xế chấp nhận yêu cầu. |
+
+## 10.4. Quy tắc về trạng thái chuyến đi
+
+| ID | Quy tắc nghiệp vụ | Mô tả |
+| --- | --- | --- |
+| BR-18 | Trạng thái chờ tìm tài xế | Sau khi khách hàng tạo yêu cầu, chuyến đi ở trạng thái đang tìm tài xế cho đến khi có tài xế nhận chuyến hoặc không tìm được tài xế. |
+| BR-19 | Tài xế đã nhận chuyến | Khi tài xế chấp nhận, chuyến đi được chuyển sang trạng thái tài xế đã nhận chuyến. |
+| BR-20 | Tài xế đến điểm đón | Tài xế cập nhật trạng thái khi đã đến điểm đón. |
+| BR-21 | Đã đón khách | Tài xế chỉ được chuyển sang trạng thái đã đón khách sau khi khách hàng được đón. |
+| BR-22 | Đang di chuyển | Chuyến đi chuyển sang trạng thái đang di chuyển sau khi tài xế bắt đầu thực hiện hành trình. |
+| BR-23 | Hoàn thành chuyến | Chuyến đi được chuyển sang trạng thái hoàn thành khi tài xế hoàn tất hành trình. |
+| BR-24 | Theo dõi trạng thái | Khách hàng có quyền xem trạng thái hiện tại của chuyến đi. |
+
+## 10.5. Quy tắc về vị trí tài xế
+
+| ID | Quy tắc nghiệp vụ | Mô tả |
+| --- | --- | --- |
+| BR-25 | Ghi nhận vị trí | Hệ thống ghi nhận vị trí của tài xế để hỗ trợ tìm kiếm và phân công chuyến. |
+| BR-26 | Vị trí phục vụ điều phối | Vị trí tài xế được sử dụng làm một trong các tiêu chí để xác định tài xế phù hợp. |
+| BR-27 | Hỗ trợ dự kiến thời gian đến | Thông tin vị trí tài xế được sử dụng để hỗ trợ dự kiến thời gian tài xế đến điểm đón. |
+
+## 10.6. Quy tắc về tính cước
+
+| ID | Quy tắc nghiệp vụ | Mô tả |
+| --- | --- | --- |
+| BR-28 | Tính cước sau chuyến | Hệ thống xác định số tiền khách hàng phải trả sau khi chuyến đi hoàn thành. |
+| BR-29 | Căn cứ tính cước | Số tiền phải trả được xác định dựa trên loại dịch vụ và thông tin chuyến đi. |
+| BR-30 | Chính sách tính cước | Công thức tính cước chi tiết cần được doanh nghiệp xác nhận trước khi triển khai chính thức. |
+
+## 10.7. Quy tắc về thanh toán
+
+| ID | Quy tắc nghiệp vụ | Mô tả |
+| --- | --- | --- |
+| BR-31 | Thanh toán tiền mặt | Khách hàng có thể thanh toán bằng tiền mặt theo chính sách của doanh nghiệp. |
+| BR-32 | Thanh toán điện tử | Khách hàng có thể thanh toán điện tử thông qua nhà cung cấp thanh toán bên ngoài. |
+| BR-33 | Không lưu thông tin nhạy cảm | Hệ thống CAB không lưu trực tiếp thông tin nhạy cảm của thẻ hoặc tài khoản thanh toán. |
+| BR-34 | Xử lý kết quả thanh toán | Hệ thống phải ghi nhận và cập nhật trạng thái giao dịch dựa trên kết quả từ nhà cung cấp thanh toán. |
+| BR-35 | Thanh toán thất bại | Khi thanh toán điện tử thất bại, hệ thống phải thông báo cho khách hàng. |
+| BR-36 | Thanh toán lại | Khi thanh toán thất bại, khách hàng có thể thực hiện lại giao dịch theo chính sách của doanh nghiệp. |
+| BR-37 | Tra cứu giao dịch | Nhân viên vận hành có quyền phù hợp được phép tra cứu lịch sử và trạng thái giao dịch. |
+
+## 10.8. Quy tắc về thông báo
+
+| ID | Quy tắc nghiệp vụ | Mô tả |
+| --- | --- | --- |
+| BR-38 | Thông báo tiếp nhận | Hệ thống gửi thông báo khi yêu cầu đặt xe được tiếp nhận. |
+| BR-39 | Thông báo tài xế nhận chuyến | Hệ thống gửi thông báo cho khách hàng khi có tài xế nhận chuyến. |
+| BR-40 | Thông báo tài xế đến | Hệ thống gửi thông báo khi tài xế đến điểm đón. |
+| BR-41 | Thông báo hoàn thành | Hệ thống gửi thông báo khi chuyến đi hoàn thành. |
+| BR-42 | Thông báo thanh toán | Hệ thống gửi thông báo cho khách hàng về kết quả thanh toán. |
+| BR-43 | Thông báo cho tài xế | Tài xế phải nhận được thông báo khi có chuyến mới hoặc có thay đổi liên quan đến chuyến đang thực hiện. |
+| BR-44 | Khả năng mở rộng kênh thông báo | Hệ thống phải cho phép bổ sung các nhà cung cấp hoặc kênh thông báo mới mà không ảnh hưởng lớn đến các chức năng hiện tại. |
+
+## 10.9. Quy tắc về lịch sử và đánh giá
+
+| ID | Quy tắc nghiệp vụ | Mô tả |
+| --- | --- | --- |
+| BR-45 | Lưu lịch sử chuyến | Hệ thống phải lưu thông tin các chuyến đi đã thực hiện để phục vụ tra cứu. |
+| BR-46 | Xem lịch sử | Khách hàng có thể xem lịch sử chuyến đi của mình. |
+| BR-47 | Xem số tiền phải trả | Khách hàng có thể xem số tiền phải trả của chuyến đi. |
+| BR-48 | Đánh giá sau chuyến | Khách hàng chỉ được đánh giá tài xế sau khi chuyến đi đã hoàn thành. |
+| BR-49 | Gắn đánh giá với chuyến | Đánh giá phải được gắn với chuyến đi và tài xế tương ứng. |
+
+## 10.10. Quy tắc về quản lý vận hành
+
+| ID | Quy tắc nghiệp vụ | Mô tả |
+| --- | --- | --- |
+| BR-50 | Quản lý khách hàng | Nhân viên vận hành có quyền phù hợp được xem và quản lý thông tin khách hàng. |
+| BR-51 | Quản lý tài xế | Nhân viên vận hành có quyền phù hợp được xem và quản lý thông tin tài xế. |
+| BR-52 | Quản lý phương tiện | Nhân viên vận hành có quyền phù hợp được quản lý thông tin phương tiện. |
+| BR-53 | Theo dõi chuyến đang diễn ra | Nhân viên vận hành có thể theo dõi các chuyến đang thực hiện và trạng thái tài xế. |
+| BR-54 | Xử lý chuyến lỗi | Nhân viên vận hành có thể hỗ trợ xử lý các trường hợp chuyến đi gặp sự cố. |
+| BR-55 | Phân quyền thao tác | Các thao tác nhạy cảm chỉ được thực hiện bởi nhân viên có quyền phù hợp. |
+
+## 10.11. Quy tắc về báo cáo
+
+| ID | Quy tắc nghiệp vụ | Mô tả |
+| --- | --- | --- |
+| BR-56 | Báo cáo số lượng chuyến | Hệ thống cung cấp số lượng chuyến theo khoảng thời gian được lựa chọn. |
+| BR-57 | Báo cáo doanh thu | Hệ thống cung cấp thông tin doanh thu từ các chuyến đi. |
+| BR-58 | Tỷ lệ hoàn thành | Hệ thống cung cấp tỷ lệ chuyến đi hoàn thành. |
+| BR-59 | Tỷ lệ hủy | Hệ thống cung cấp tỷ lệ chuyến đi bị hủy. |
+| BR-60 | Hiệu quả tài xế | Hệ thống cung cấp dữ liệu phục vụ đánh giá hiệu quả hoạt động của tài xế. |
+
+## 10.12. Quy tắc về bảo mật và Audit
+
+| ID | Quy tắc nghiệp vụ | Mô tả |
+| --- | --- | --- |
+| BR-61 | Bảo vệ thông tin cá nhân | Thông tin cá nhân của khách hàng và tài xế phải được bảo vệ. |
+| BR-62 | Bảo vệ thông tin phương tiện | Thông tin phương tiện phải được bảo vệ và chỉ được truy cập bởi người có quyền. |
+| BR-63 | Bảo vệ dữ liệu vị trí | Dữ liệu vị trí của tài xế phải được kiểm soát quyền truy cập. |
+| BR-64 | Bảo vệ dữ liệu giao dịch | Dữ liệu liên quan đến giao dịch thanh toán phải được bảo vệ. |
+| BR-65 | Ghi nhận thao tác quan trọng | Các thao tác quan trọng phải được lưu vết để phục vụ kiểm tra và xử lý sự cố. |
+| BR-66 | Kiểm soát truy cập | Người dùng chỉ được truy cập dữ liệu và chức năng phù hợp với quyền được cấp. |
+
+## 10.13. Các quy tắc cần xác nhận với khách hàng
+
+Một số quy tắc nghiệp vụ trong yêu cầu hiện tại chưa được doanh nghiệp xác định chi tiết. Business Analyst cần làm rõ với các bên liên quan trước khi triển khai.
+
+| ID | Nội dung cần xác nhận | Vấn đề cần làm rõ |
+| --- | --- | --- |
+| BR-67 | Công thức tính cước | Cách tính giá theo loại xe, quãng đường, thời gian hoặc các phụ phí khác. |
+| BR-68 | Tiêu chí ưu tiên tài xế | Khoảng cách, thời gian chờ, loại xe, trạng thái tài xế hoặc các tiêu chí khác. |
+| BR-69 | Thời gian phản hồi | Tài xế có bao nhiêu giây/phút để chấp nhận hoặc từ chối chuyến trước khi hệ thống chuyển sang tài xế khác. |
+| BR-70 | Chính sách hủy chuyến | Ai được phép hủy, thời điểm hủy và có phát sinh phí hay không. |
+| BR-71 | Xử lý mất kết nối | Cách xử lý khi khách hàng, tài xế hoặc hệ thống mất kết nối trong quá trình đặt và thực hiện chuyến. |
+| BR-72 | Thanh toán thất bại | Số lần được phép thanh toán lại và các trường hợp cần nhân viên vận hành hỗ trợ. |
+| BR-73 | Thời gian lưu trữ dữ liệu | Thời gian lưu trữ thông tin chuyến đi, giao dịch, vị trí và audit log. |
+| BR-74 | Quyền quản trị | Xác định cụ thể các thao tác nào chỉ dành cho quản trị viên hoặc nhân viên có quyền đặc biệt. |
+| BR-75 | Chính sách đánh giá | Quy định về số lần đánh giá, thời gian được phép đánh giá và cách xử lý đánh giá không hợp lệ. |
+
+## 10.14. Luồng nghiệp vụ tổng quát
+
+```mermaid
+flowchart LR
+    A["Khách hàng đăng nhập"] --> B["Nhập điểm đón, điểm đến<br/>và chọn loại xe"]
+    B --> C["Tạo yêu cầu đặt xe"]
+    C --> D["Hệ thống tiếp nhận yêu cầu"]
+    D --> E["Tìm tài xế phù hợp"]
+
+    E --> F{"Có tài xế phù hợp?"}
+
+    F -- "Không" --> G["Thông báo không tìm được tài xế"]
+    F -- "Có" --> H["Gửi yêu cầu đến tài xế"]
+
+    H --> I{"Tài xế phản hồi?"}
+
+    I -- "Từ chối" --> E
+    I -- "Không phản hồi" --> E
+    I -- "Chấp nhận" --> J["Xác nhận tài xế nhận chuyến"]
+
+    J --> K["Tài xế di chuyển đến điểm đón"]
+    K --> L["Tài xế cập nhật: Đã đến điểm đón"]
+    L --> M["Đón khách"]
+    M --> N["Cập nhật: Đang di chuyển"]
+    N --> O["Hoàn thành chuyến"]
+
+    O --> P["Hệ thống tính cước"]
+    P --> Q{"Phương thức thanh toán"}
+
+    Q -- "Tiền mặt" --> R["Ghi nhận thanh toán tiền mặt"]
+    Q -- "Điện tử" --> S["Gửi giao dịch đến nhà cung cấp thanh toán"]
+
+    S --> T{"Thanh toán thành công?"}
+    T -- "Có" --> U["Ghi nhận thanh toán thành công"]
+    T -- "Không" --> V["Thông báo thanh toán thất bại"]
+    V --> W["Xử lý thanh toán lại theo chính sách"]
+
+    R --> X["Lưu lịch sử chuyến"]
+    U --> X
+    W --> X
+
+    X --> Y["Khách hàng đánh giá tài xế"]
+```
+## 10.15.Mối quan hệ giữa các quy tắc nghiệp vụ
+```mermaid
+flowchart TD
+    A["Đặt xe"] --> B["Tìm tài xế"]
+    B --> C["Kiểm tra vị trí và trạng thái"]
+    C --> D["Ưu tiên tài xế phù hợp"]
+
+    D --> E["Gửi yêu cầu chuyến"]
+    E --> F{"Tài xế nhận?"}
+
+    F -- "Không" --> G["Tìm tài xế khác"]
+    G --> B
+
+    F -- "Có" --> H["Thực hiện chuyến"]
+    H --> I["Cập nhật trạng thái"]
+    I --> J["Hoàn thành chuyến"]
+
+    J --> K["Tính cước"]
+    K --> L["Thanh toán"]
+
+    L --> M["Ghi nhận giao dịch"]
+    M --> N["Lưu lịch sử"]
+    N --> O["Đánh giá tài xế"]
+
+    B --> P["Gửi thông báo"]
+    H --> P
+    J --> P
+    L --> P
+    ```
